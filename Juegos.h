@@ -46,6 +46,7 @@ class Juegos {
 			precio = 0;
 			anio = 0;
 		}
+
 	
 	
 };
@@ -53,23 +54,24 @@ class Juegos {
 
 
 float Juegos::precioFinal(){
-		if(getPlat() == "play"){
-			setPrecio(getPrecio() + (1000 + (1000*0.15)));
+		if(plataforma == "play"){
+			precio = (precio + (1000 + (1000*0.15)));
 		}
 		else {
-			setPrecio(getPrecio() + (1000 + (1000*0.10)));
+			precio = (precio + (1000 + (1000*0.10)));
 		}
 		
-		if(getEst() == "fisico"){
-			setPrecio(getPrecio() * (getPrecio() * 0.05));
+		if(estado == "fisico"){
+			precio = (precio * (precio * 0.05));
 		}
 		
-		if((2020 - getAnio()) > 2){
-			setPrecio(getPrecio() - (getPrecio() * 0.10));
+		if((2020 - anio) > 2){
+			precio = (precio - (precio * 0.10));
 		}
 		else{
-			setPrecio(getPrecio() + (getPrecio() * 0.20));
+			precio = (precio + (precio * 0.20));
 		}
+		return precio;
 }
 
 #endif

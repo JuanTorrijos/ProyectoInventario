@@ -59,6 +59,7 @@ float Consola::definePrecio(){
 	else {
 		ganancia = ganancia + (ganancia*0.5);
 	}
+	return ganancia;
 }
 
 // aquí se muestra la prueba de la clase, asignandole valores a los atributos para verificar que cumple su funcionamiento

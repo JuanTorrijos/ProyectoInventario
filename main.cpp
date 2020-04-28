@@ -6,26 +6,16 @@ Proyecto: Inventario de una tienda de videojuegos
 #include<iostream>
 using namespace std;
 
-#include "Play.h"
-#include "Xbox.h"
-#include "Juegos.h"
+//#include "Play.h"
+//#include "Xbox.h"
+//#include "Juegos.h"
+//#include "Consola.h"
 #include "Inventario.h"
 
-void abastecer(int cantd){
-	for(int i=0;i<cantd;i++){
-	Play auxp("play", 5000, "si", "no");
-	inv.agrega_play(aux);
-	Xbox auxx("xbox", 4000, "no", 1);
-	inv.agrega_xbox(auxx);
-	Juegos auxj("play", "fisico", 0, 2015);
-	inv.agrega_juego(auxj);
-	Juegos auxj2("xbox", "digital", 0, 2020);
-	inv.agrega_juego(auxj2);
-	}
-	
-}
-
-
+/*
+void abastecer(int cantd);
+Juegos juegos_i[100];
+int j;
 int main(){
 	Inventario inv(0, 0.0);
 	inv.pedirAbasto();
@@ -33,7 +23,28 @@ int main(){
 		abastecer(5);
 	}
 	
-	
+	cout << inv.get_numeroproductos()<<endl;
+	cout<<inv.get_ganancias()<<endl;
+	inv.compra_juego(j);
+	cout<<inv.get_numeroproductos()<<endl;
+	cout<<inv.get_ganancias()<<endl;
+
+}
+
+void abastecer(int cantd, Inventario inv, int j){
+	for(int i=0;i<cantd;i++){
+	Play auxp("play", 5000, "si", "no");
+	inv.agrega_play(auxp);
+	Xbox auxx("xbox", 4000, "no", 1);
+	inv.agrega_xbox(auxx);
+	Juegos auxj("play", "fisico", 0, 2015);
+	inv.agrega_juego(auxj);
+	Juegos auxj2("xbox", "digital", 0, 2020);
+	inv.agrega_juego(auxj2);
+	}
+	//j = inv.get_jgi();
+}
+
 	
 	/*
 	Control controln("negro", 1, 1);
@@ -42,4 +53,4 @@ int main(){
 	Xbox xbox_1("no", 2);
 	Juegos juego("xbox", "fisico", 0, 2020);
 	*/
-}
+

@@ -33,6 +33,13 @@ class Play: public Consola{
 		}
 		
 		float definePrecioPlay();
+		
+		void eliminaPlay(){
+			set_marca("");
+			set_ganancia(0);
+			psPlus = "";
+			psVR = "";
+		}
 	
 	
 	
@@ -65,6 +72,7 @@ float Play::definePrecioPlay(){
 	if (psVR == "si"){
 		set_ganancia(get_ganancia() + 3000);
 	}
+	return get_ganancia();
 }
 
 

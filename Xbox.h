@@ -25,6 +25,13 @@ class Xbox: public Consola{
 		void agregarBateria(){
 			set_ganancia(get_ganancia() + 50);
 		}
+		
+		void eliminaXbox(){
+			set_marca("");
+			set_ganancia(0);
+			xboxLive = "";
+			baterias = 0;
+		}
 	
 	
 	

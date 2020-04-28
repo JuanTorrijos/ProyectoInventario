@@ -43,7 +43,7 @@ calculará los productos restantes en el inventario
 	Inventario(int numprod, float gan):numeroproductos(numprod), ganancias(gan){};
 	void compra_play(Play p);
 	void compra_xbox(Xbox x);
-	void compra_juego(Juegos j);
+	void compra_juego(int j);
 	void pedirAbasto();
 	void agrega_play(Play ps);
 	void agrega_xbox(Xbox xb);
@@ -52,6 +52,9 @@ calculará los productos restantes en el inventario
 	int get_numeroproductos();
 	float get_ganancias();
 	bool get_abasto();
+	int get_jgi(){
+		return jg_i;
+	}
 	
 	//setters
 	void set_numeroproductos(int numprod);
@@ -92,18 +95,21 @@ void Inventario::compra_play(Play p){
 	//numeroproductos = numeroproductos - 1;
 	ps_i --;
 	//plays_i[ps_i] = Play vacio("0",0, "0", "0");
+	plays_i[ps_i].eliminaPlay();
 }
 void Inventario::compra_xbox(Xbox x){
 	ganancias = ganancias + x.definePrecio();
 	//numeroproductos = numeroproductos - 1;
 	xb_i --;
 	//xboxs_i[xb_i] = Xbox vaci("0",0,"0",0);
+	xboxs_i[xb_i].eliminaXbox();
 }
-void Inventario::compra_juego(Juegos j){
-	ganancias = ganancias + j.precioFinal();
+void Inventario::compra_juego(int j){
+	ganancias = ganancias + juegos_i[j].precioFinal();
 	//numeroproductos = numeroproductos - 1;
 	jg_i --;
 	//juegos_i[jg_i] = Juegos vac("0","0",0,0);
+	juegos_i[j].eliminaJuego();
 }
 	
 
