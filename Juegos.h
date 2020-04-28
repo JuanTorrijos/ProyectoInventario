@@ -39,7 +39,13 @@ class Juegos {
 		void consultarEstado(){
 			getEst();
 		}
-
+		
+		void eliminaJuego(){
+			plataforma = "";
+			estado = "";
+			precio = 0;
+			anio = 0;
+		}
 	
 	
 };
