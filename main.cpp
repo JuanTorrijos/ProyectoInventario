@@ -12,7 +12,7 @@ using namespace std;
 //#include "Consola.h"
 #include "Inventario.h"
 
-Inventario inv(0, 0.0);
+Inventario inv(0, 0);
 
 int j;
 void abastecer(int cantd, Inventario inv, int j);
@@ -20,17 +20,37 @@ void abastecer(int cantd, Inventario inv, int j);
 
 int main(){	
 	inv.pedirAbasto();
-	if(inv.get_abasto() == true){
-		abastecer(5, inv, j);
-	}
+	cout<<"abasto: "<<inv.get_abasto()<<endl;
+	cout<<"indice juegos: "<<inv.get_jgi()<<endl;
+	cout<<"indice plays: "<<inv.get_psi()<<endl;
+	cout<<"indice xboxs: "<<inv.get_xbi()<<endl<<endl;
+	//if(inv.get_abasto() == 1){
+		//abastecer(5, inv, j);
+	//}
+	Play auxp("play", 5000, "si", "no");
+	inv.agrega_play(auxp);
+	Juegos auxj("play", "fisico", 0, 2015);
+	inv.agrega_juego(auxj);
+	Xbox auxx("xbox", 4000, "no", 1);
+	inv.agrega_xbox(auxx);
+	
 	inv.pedirAbasto();
-	cout << inv.get_numeroproductos()<<endl;
-	cout << inv.get_ganancias() << endl;
+	cout<<"abasto: "<<inv.get_abasto()<<endl;
+	cout<<"indice juegos: "<<inv.get_jgi()<<endl;
+	cout<<"indice plays: "<<inv.get_psi()<<endl;
+	cout<<"indice xboxs: "<<inv.get_xbi()<<endl;
+	cout <<"productos: "<< inv.get_numeroproductos()<<endl;
+	cout <<"ganancias: "<< inv.get_ganancias() << endl<<endl;
 
 	inv.compra_juego(j);
+	inv.compra_play(j);
+	inv.compra_xbox(j);
 	inv.pedirAbasto();
-	cout<<inv.get_numeroproductos()<<endl;
-	cout<<inv.get_ganancias()<<endl;
+	cout<<"productos: "<<inv.get_numeroproductos()<<endl;
+	cout<<"ganancias: "<<inv.get_ganancias()<<endl;
+	cout<<"indice juegos: "<<inv.get_jgi()<<endl;
+	cout<<"indice plays: "<<inv.get_psi()<<endl;
+	cout<<"indice xboxs: "<<inv.get_xbi()<<endl;
 }
 
 void abastecer(int cantd, Inventario inv, int j){

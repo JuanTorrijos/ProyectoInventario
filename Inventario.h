@@ -26,7 +26,7 @@ o si el juego es fisico o digital
 	private:
 	int numeroproductos;
 	float ganancias;
-	bool abasto = false;
+	bool abasto = true;
 	int ps_i = 0;
 	int xb_i = 0;
 	int jg_i = 0;
@@ -41,8 +41,8 @@ calculará los productos restantes en el inventario
 	public:
 	Inventario();
 	Inventario(int numprod, float gan):numeroproductos(numprod), ganancias(gan){};
-	void compra_play(Play p);
-	void compra_xbox(Xbox x);
+	void compra_play(int p);
+	void compra_xbox(int x);
 	void compra_juego(int j);
 	void pedirAbasto();
 	void agrega_play(Play ps);
@@ -54,6 +54,12 @@ calculará los productos restantes en el inventario
 	bool get_abasto();
 	int get_jgi(){
 		return jg_i;
+	}
+	int get_psi(){
+		return ps_i;
+	}
+	int get_xbi(){
+		return xb_i;
 	}
 	
 	//setters
@@ -90,19 +96,20 @@ void Inventario::set_ganancias(float gan){
 
 
 //el metodo "compra" calculará los productos restantes después de una compra
-void Inventario::compra_play(Play p){
-	set_ganancias(p.definePrecioPlay() + (p.definePrecio() * p.definePrecioPlay()));
+void Inventario::compra_play(int p){
+	plays_i[p].definePrecioPlay();
+	ganancias = ganancias + plays_i[p].definePrecio(); //* plays_i[p].definePrecioPlay()));
 	//numeroproductos = numeroproductos - 1;
 	ps_i --;
 	//plays_i[ps_i] = Play vacio("0",0, "0", "0");
-	plays_i[ps_i].eliminaPlay();
+	plays_i[p].eliminaPlay();
 }
-void Inventario::compra_xbox(Xbox x){
-	ganancias = ganancias + x.definePrecio();
+void Inventario::compra_xbox(int x){
+	ganancias = ganancias + xboxs_i[x].definePrecio();
 	//numeroproductos = numeroproductos - 1;
 	xb_i --;
 	//xboxs_i[xb_i] = Xbox vaci("0",0,"0",0);
-	xboxs_i[xb_i].eliminaXbox();
+	xboxs_i[x].eliminaXbox();
 }
 void Inventario::compra_juego(int j){
 	ganancias = ganancias + juegos_i[j].precioFinal();
@@ -117,6 +124,9 @@ void Inventario::pedirAbasto(){
 	set_numeroproductos(ps_i + xb_i + jg_i);
 	if (numeroproductos < 3){
 		abasto = true;
+	}
+	else{
+		abasto = false;
 	}
 }
 
