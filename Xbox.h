@@ -21,6 +21,13 @@ class Xbox: public Consola{
 		int getBaterias(){
 			return baterias;
 		}
+		//setters
+		void setLive(string live){
+			xboxLive = live;
+		}
+		void setBaterias(int bat){
+			baterias = bat;
+		}
 		
 		void agregarBateria(){
 			set_ganancia(get_ganancia() + 50);
@@ -36,6 +43,8 @@ class Xbox: public Consola{
 	
 	
 };
+
+Xbox::Xbox(){}
 
 Xbox::Xbox(string marc, float gan, string live, int bat):Consola(marc, gan){
 	xboxLive = live;

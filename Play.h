@@ -45,6 +45,8 @@ class Play: public Consola{
 	
 };
 
+Play::Play(){}
+
 Play::Play(string marc, float gan, string plus, string vr):Consola(marc, gan){
 	psPlus = plus;
 	psVR = vr;

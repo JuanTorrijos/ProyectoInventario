@@ -12,23 +12,25 @@ using namespace std;
 //#include "Consola.h"
 #include "Inventario.h"
 
-/*
-void abastecer(int cantd);
-Juegos juegos_i[100];
+Inventario inv(0, 0.0);
+
 int j;
-int main(){
-	Inventario inv(0, 0.0);
+void abastecer(int cantd, Inventario inv, int j);
+//Juegos juegos_i[100];
+
+int main(){	
 	inv.pedirAbasto();
 	if(inv.get_abasto() == true){
-		abastecer(5);
+		abastecer(5, inv, j);
 	}
-	
+	inv.pedirAbasto();
 	cout << inv.get_numeroproductos()<<endl;
-	cout<<inv.get_ganancias()<<endl;
+	cout << inv.get_ganancias() << endl;
+
 	inv.compra_juego(j);
+	inv.pedirAbasto();
 	cout<<inv.get_numeroproductos()<<endl;
 	cout<<inv.get_ganancias()<<endl;
-
 }
 
 void abastecer(int cantd, Inventario inv, int j){
@@ -42,15 +44,6 @@ void abastecer(int cantd, Inventario inv, int j){
 	Juegos auxj2("xbox", "digital", 0, 2020);
 	inv.agrega_juego(auxj2);
 	}
-	//j = inv.get_jgi();
+	j = inv.get_jgi();
 }
-
-	
-	/*
-	Control controln("negro", 1, 1);
-	Play play_1("si", "no");
-	Play play_2("no", "no");
-	Xbox xbox_1("no", 2);
-	Juegos juego("xbox", "fisico", 0, 2020);
-	*/
 

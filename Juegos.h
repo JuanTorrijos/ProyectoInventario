@@ -62,7 +62,7 @@ float Juegos::precioFinal(){
 		}
 		
 		if(estado == "fisico"){
-			precio = (precio * (precio * 0.05));
+			precio = (precio + (precio * 0.05));
 		}
 		
 		if((2020 - anio) > 2){
