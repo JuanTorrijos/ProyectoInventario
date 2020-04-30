@@ -27,9 +27,6 @@ class Xbox: public Consola{
 			baterias = bat;
 		}
 		
-		void agregarBateria(){
-			set_ganancia(get_ganancia() + 50);
-		}
 //metodo para eliminar el objeto comprado(esta en play y juegos tambien)
 		void eliminaXbox(){
 			set_marca("");
