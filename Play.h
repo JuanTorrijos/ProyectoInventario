@@ -13,25 +13,43 @@ class Play: public Consola{
 		string psVR;
 		Control control;
 		
+//se crean los valores por default de un control 
+		string colCont = "negro";
+		int ledCont = 1;
+		int cantCont = 1;
 		
 	public:
 		Play();
 		Play(string marc, float gan, string plus, string vr);
-		
+		//Getters
 		string getPsPlus(){
 			return psPlus;
 		}
 		string getPsVR(){
 			return psVR;
 		}
-		
-		//void agregarVR(){
-		//	set_ganancia(get_ganancia + 3000);
-		
-		void agregaControl(){
-			Control control("negro", 1, 2);
+		string get_colC(){
+			return colCont;
+		}
+		int get_ledC(){
+			return ledCont;
+		}
+		int get_cantC(){
+			return cantCont;
 		}
 		
+		//Setters
+		void set_colC(string c){
+			colCont = c;
+		}
+		void set_ledC(int t){
+			ledCont = t;
+		}
+		void set_cantC(int ca){
+			cantCont = ca;
+		}
+		
+		//metodos para compra y precio de play
 		float definePrecioPlay();
 		
 		void eliminaPlay(){
@@ -52,8 +70,14 @@ Play::Play(string marc, float gan, string plus, string vr):Consola(marc, gan){
 	psVR = vr;
 }
 
+/*
+este metodo calcula la ganancia del play de acuerdo a sus caracteristicas y
+a las de su control, que es la clase que esta en composicion con play y que
+crea el objeto con las especificaciones del usuario mediante los metodos set
+de play.
+*/
 float Play::definePrecioPlay(){
-	Control control("negro", 1, 2);
+	Control control(colCont, ledCont, cantCont);
 	if (control.getColor() != "negro"){
 		set_ganancia(get_ganancia() + 100);
 	}
@@ -75,15 +99,5 @@ float Play::definePrecioPlay(){
 		set_ganancia(get_ganancia() + 3000);
 	}
 	return get_ganancia();
-}
-
-
-//int main(){
-	//Control control("rojo", 1, 2);
-	//Play play("si", "no");
-	
-
-	
-	
-	
+}	
 #endif 

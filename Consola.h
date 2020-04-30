@@ -61,17 +61,5 @@ float Consola::definePrecio(){
 	}
 	return ganancia;
 }
-
-// aquí se muestra la prueba de la clase, asignandole valores a los atributos para verificar que cumple su funcionamiento
-// el valor de "marca" es la string "play" y la ganancia en un principio es "0", pero después de ejecutar el método
-// se calcula la ganancia real
-//int main(){
-	//Consola Consola("play", 0);
-	//cout << "la marca es " << Consola.get_marca() << " ";
-	//cout << "la ganancia es " << Consola.get_ganancia() << endl;
-	//Consola.definePrecio();
-	//cout << "la marca es " << Consola.get_marca() << " ";
-	//cout << "la ganancia es " << Consola.get_ganancia() << endl;
-
 #endif 
 

@@ -13,7 +13,8 @@ class Juegos {
 		
 	public:
 		Juegos(){};
-		Juegos(string plat, string est, float pre, int an): plataforma(plat), estado(est), precio(pre), anio(an){};
+		Juegos(string plat, string est, float pre, int an): 
+		plataforma(plat), estado(est), precio(pre), anio(an){};
 		
 		//Getters
 		string getPlat(){
@@ -51,8 +52,7 @@ class Juegos {
 	
 };
 
-
-
+//este metodo define el precio de un juego segun sus atributos
 float Juegos::precioFinal(){
 		if(plataforma == "play"){
 			precio = (precio + (1000 + (1000*0.15)));

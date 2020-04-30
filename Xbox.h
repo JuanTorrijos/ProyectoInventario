@@ -1,11 +1,9 @@
-//#ifndef XBOX_H
-//#define XBOX_H
-
 #include<iostream>
 using namespace std;
 
 #include "Consola.h"
 
+//Crea la clase Xbox que esta en herencia con consola
 class Xbox: public Consola{
 	private:
 		string xboxLive;
@@ -32,7 +30,7 @@ class Xbox: public Consola{
 		void agregarBateria(){
 			set_ganancia(get_ganancia() + 50);
 		}
-		
+//metodo para eliminar el objeto comprado(esta en play y juegos tambien)
 		void eliminaXbox(){
 			set_marca("");
 			set_ganancia(0);
@@ -40,6 +38,7 @@ class Xbox: public Consola{
 			baterias = 0;
 		}
 	
+		float definePrecioXbox();
 	
 	
 };
@@ -50,4 +49,12 @@ Xbox::Xbox(string marc, float gan, string live, int bat):Consola(marc, gan){
 	xboxLive = live;
 	baterias = bat;
 }
-//#endif 
+
+//metodo para definir las ganancias de un xbox segun sus caracteristicas
+float Xbox::definePrecioXbox(){
+	if (xboxLive == "si"){
+		set_ganancia(get_ganancia() + 100);
+	}
+	set_ganancia(get_ganancia() + (baterias * 50));
+	return get_ganancia();
+}

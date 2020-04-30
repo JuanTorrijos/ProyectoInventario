@@ -4,6 +4,7 @@
 #include<iostream>
 using namespace std;
 
+//Crea la clase Control con sus atributos y metodos normales gettesr y setters
 class Control {
 	private:
 	string color;
@@ -42,7 +43,7 @@ class Control {
 	void setCantidad(int cant){
 		cantidad = cant;
 	}
-	
+//Guarda la clase como .h para usarla como libreria
 };
 #endif
 

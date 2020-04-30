@@ -14,7 +14,7 @@ using namespace std;
 #include "Play.h"
 #include "Xbox.h"
 #include "Juegos.h"
-
+//crea la constante para los tamaños de arreglos
 const int MAX = 100;
 //crea la clase inventario que contendrá todos los productos de la tienda
 class Inventario {
@@ -65,8 +65,6 @@ calculará los productos restantes en el inventario
 	//setters
 	void set_numeroproductos(int numprod);
 	void set_ganancias(float gan);
-	
-
 };
 
 // los getters nos permitirán saber que valor tienen las variables y 
@@ -95,31 +93,29 @@ void Inventario::set_ganancias(float gan){
 }
 
 
-//el metodo "compra" calculará los productos restantes después de una compra
+//los metodos "compra" calcularán los productos restantes después de una
+//compra y las ganancias ademas de eliminar el comprado
 void Inventario::compra_play(int p){
 	plays_i[p].definePrecioPlay();
-	ganancias = ganancias + plays_i[p].definePrecio(); //* plays_i[p].definePrecioPlay()));
-	//numeroproductos = numeroproductos - 1;
-	ps_i --;
-	//plays_i[ps_i] = Play vacio("0",0, "0", "0");
+	ganancias = ganancias + plays_i[p].definePrecio();
+	ps_i = ps_i-2;
 	plays_i[p].eliminaPlay();
 }
 void Inventario::compra_xbox(int x){
+	xboxs_i[x].definePrecioXbox();
 	ganancias = ganancias + xboxs_i[x].definePrecio();
-	//numeroproductos = numeroproductos - 1;
-	xb_i --;
-	//xboxs_i[xb_i] = Xbox vaci("0",0,"0",0);
+	xb_i = xb_i-2;
 	xboxs_i[x].eliminaXbox();
 }
 void Inventario::compra_juego(int j){
 	ganancias = ganancias + juegos_i[j].precioFinal();
-	//numeroproductos = numeroproductos - 1;
-	jg_i --;
-	//juegos_i[jg_i] = Juegos vac("0","0",0,0);
+	jg_i = jg_i-2;
 	juegos_i[j].eliminaJuego();
 }
 	
-
+//este metodo actualiza el numero de productos y la condicion de abasto
+//calcula el numero de productos y si estos son menores a 3, cambia el valor
+//de abasto por true para que se abastesca el inventario.
 void Inventario::pedirAbasto(){
 	set_numeroproductos(ps_i + xb_i + jg_i);
 	if (numeroproductos < 3){
@@ -130,6 +126,7 @@ void Inventario::pedirAbasto(){
 	}
 }
 
+//estos metodos agregan los objetos a sus respectivos arreglos 
 void Inventario::agrega_play(Play ps){
 	plays_i[ps_i] = ps;
 	ps_i ++;
@@ -142,27 +139,5 @@ void Inventario::agrega_juego(Juegos js){
 	juegos_i[jg_i] = js;
 	jg_i ++;
 }
-
-/*
-aquí está el main que le da valores de prueba a los atributos para comprobar
-que los getters, setters y demás métodos funcionan correctamente, éste
-imprimirá los valores dados en un principio y después los imprime 
-pero ya posterior a que se ha realizado una compra.
-*/
-/*
-int main(){
-	inventario inventario(10, false, "fisico");
-	cout << inventario.get_numeroproductos() << " ";
-	cout << inventario.get_pedirabasto() << " "; 
-	cout << inventario.get_tipojuego() << endl;
-	inventario.compra();
-	cout << inventario.get_numeroproductos() << " ";
-	cout << inventario.get_pedirabasto() << " "; 
-	cout << inventario.get_tipojuego() << endl;
-
-}
-*/
-
-
 #endif
 
