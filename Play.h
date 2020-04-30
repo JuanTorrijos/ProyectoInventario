@@ -7,6 +7,7 @@ using namespace std;
 #include "Consola.h"
 #include "Control.h"
 
+//Crea la clase Play en herencia con consola.
 class Play: public Consola{
 	private:
 		string psPlus;

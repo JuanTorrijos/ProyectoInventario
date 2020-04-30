@@ -21,6 +21,8 @@ int sel;
 
 //en el main se crearan y agregaran los objetos y se despliegara el menu
 int main(){	
+//el ciclo repetira el menu hasta que el usuario seleccione salir
+	while(sel < 4){
 //se corre la funcion de abasto para actualizar los indices y productos
 	inv.pedirAbasto();
 //se imprimen los valores siguientes para confirmar que estan correctos
@@ -69,6 +71,7 @@ producto que comprará
 */
 	cout<<"Producto a comprar:"<<endl;
 	cout<<"Plastation = 1"<<endl<<"Xbox = 2"<<endl<<"Juego = 3"<<endl;
+	cout<<"Salir = 4"<<endl;
 	cin>>sel;
 	if(sel == 1){
 		cout<<"Agregar PS plus: ";
@@ -127,7 +130,7 @@ y llama su respectiva funcion de compra
 		x = inv.get_xbi();
 		inv.compra_xbox(x-1);
 	}
-	else{
+	else if(sel == 3){
 		cout<<"Plataforma (play o xbox): ";
 		string pt;
 		cin>>pt;
@@ -143,7 +146,10 @@ y llama su respectiva funcion de compra
 		j = inv.get_jgi();
 		inv.compra_juego(j-1);
 	}
-
+	else{
+		sel = 5;
+	}
+	}
 /*
 por ultimo vuelve a actualizar los datos de productos restantes, ganancias,
 y lo que queda de cada producto y los imprime 
